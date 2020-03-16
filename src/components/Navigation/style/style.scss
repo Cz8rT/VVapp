@@ -2,63 +2,91 @@
 @import "./src/stylePartials/mixins";
 
 nav {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: $containerColor;
   @include shadow($shadowColor);
 
-  .logo {
-    font-family: $logoFont1;
-    font-size: 7rem;
-    color: $logoColor2;
+  .logo_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    span {
-      font-family: $logoFont3;
-      font-size: 4rem;
-      margin-left: -1rem;
-    }
-  }
-
-  .fa-bars {
-    font-size: 4rem;
-    padding: 0.5rem;
-    margin: 3rem;
-    color: $darkShadowColor;
-    &:hover {
+    .logo {
+      font-family: $logoFont1;
+      font-size: 7rem;
       color: $logoColor2;
-      cursor: pointer;
+
+      span {
+        font-family: $logoFont3;
+        font-size: 4rem;
+        margin-left: -1rem;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .fa-bars {
+      font-size: 4rem;
+      padding: 0.5rem;
+      margin: 3rem;
+      color: $darkShadowColor;
+
+      &:hover {
+        color: $logoColor2;
+        cursor: pointer;
+        transform: rotate(180deg);
+        transition-duration: 0.5s;
+      }
+
+      &:active {
+        color: $logoColor1;
+        transition-duration: initial;
+      }
     }
   }
 
   ul {
-    display: none;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     font-family: $mainFont;
     font-size: 2.2rem;
-    padding: 3rem 4rem 3rem 0;
     color: $darkShadowColor;
+
     li {
-      margin: 0 1.4rem;
+      margin: 2rem 1.4rem;
+
       &:first-child {
         margin-left: 0;
       }
+
       &:nth-child(2) {
         .list_logo1 {
           font-family: $logoFont1;
           font-size: 1.8rem;
           margin-left: 0.5rem;
         }
+
         .list_logo2 {
           font-family: $logoFont3;
           font-size: 1.2rem;
           margin-left: -0.4rem;
         }
       }
+
       a {
-        padding: 0.5rem;
+        padding: 0.5rem 0.5rem;
         font-weight: 600;
+
         &:hover {
           color: $logoColor2;
+          border-bottom: 3px $logoColor2 solid;
+        }
+
+        &:active {
+          color: $logoColor1;
+          border-bottom: 3px $logoColor1 solid;
         }
       }
     }
@@ -66,10 +94,9 @@ nav {
 }
 
 @media screen and (min-width: 750px) {
-  nav {
+  nav .logo_box {
     flex-direction: row;
     justify-content: space-between;
-    align-items: normal;
 
     .logo {
       margin: 0 3rem;
@@ -79,16 +106,45 @@ nav {
       margin: 3rem 5rem;
     }
   }
+
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    li {
+      margin: 2rem 0;
+
+      a {
+        padding-bottom: 2rem;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 1500px) {
   nav {
+    display: flex;
+    justify-content: space-between;
     height: 11rem;
+
     .fa-bars {
       display: none;
     }
+
     ul {
       display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 3rem 4rem 3rem 0;
+
+      li {
+        margin: 0 1.4rem;
+
+        a {
+          padding: 4.2rem 0.5rem;
+        }
+      }
     }
   }
 }

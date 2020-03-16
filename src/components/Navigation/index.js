@@ -4,8 +4,10 @@ import './style/style.scss'
 const Navigation = () => {
     return (
         <nav>
-            <h1 className={'logo'}>VV<span>app</span></h1>
-            <i className="fas fa-bars"></i>
+            <div className={'logo_box'}>
+                <h1 className={'logo'}>VV<span>app</span></h1>
+                <i className="fas fa-bars"/>
+            </div>
             <ul>
                 <li>
                     <a href={'#'}>Szukaj</a>
