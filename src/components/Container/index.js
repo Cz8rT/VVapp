@@ -5,10 +5,8 @@ import '../../stylePartials/_variables.scss'
 
 const Container = (props) => {
     return (
-        <div className={'window'}>
-            <div className={'container'}>
-                {props.children}
-            </div>
+        <div className={'container'}>
+            {props.children}
         </div>
     )
 };
