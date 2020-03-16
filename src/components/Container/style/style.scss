@@ -2,5 +2,17 @@
 
 .window {
   height: 100vh;
-  background-color: $mainBackgroundCol;
+  background-color: $windowColor;
+
+  .container {
+    height: 400px;
+    margin: 0 auto;
+    background-color: $containerColor;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .container {
+    width: 90%;
+  }
 }

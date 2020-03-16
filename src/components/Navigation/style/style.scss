@@ -1,0 +1,94 @@
+@import "./src/stylePartials/variables";
+@import "./src/stylePartials/mixins";
+
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include shadow($shadowColor);
+
+  .logo {
+    font-family: $logoFont1;
+    font-size: 7rem;
+    color: $logoColor2;
+
+    span {
+      font-family: $logoFont3;
+      font-size: 4rem;
+      margin-left: -1rem;
+    }
+  }
+
+  .fa-bars {
+    font-size: 4rem;
+    padding: 0.5rem;
+    margin: 3rem;
+    color: $darkShadowColor;
+    &:hover {
+      color: $logoColor2;
+      cursor: pointer;
+    }
+  }
+
+  ul {
+    display: none;
+    align-items: center;
+    font-family: $mainFont;
+    font-size: 2.2rem;
+    padding: 3rem 4rem 3rem 0;
+    color: $darkShadowColor;
+    li {
+      margin: 0 1.4rem;
+      &:first-child {
+        margin-left: 0;
+      }
+      &:nth-child(2) {
+        .list_logo1 {
+          font-family: $logoFont1;
+          font-size: 1.8rem;
+          margin-left: 0.5rem;
+        }
+        .list_logo2 {
+          font-family: $logoFont3;
+          font-size: 1.2rem;
+          margin-left: -0.4rem;
+        }
+      }
+      a {
+        padding: 0.5rem;
+        font-weight: 600;
+        &:hover {
+          color: $logoColor2;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 750px) {
+  nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: normal;
+
+    .logo {
+      margin: 0 3rem;
+    }
+
+    .fa-bars {
+      margin: 3rem 5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  nav {
+    height: 11rem;
+    .fa-bars {
+      display: none;
+    }
+    ul {
+      display: flex;
+    }
+  }
+}
