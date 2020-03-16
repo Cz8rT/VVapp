@@ -1,4 +1,5 @@
-@import "src/styleVariables/_variables";
+@import "../../../stylePartials/_variables";
+
 .window {
   height: 100vh;
   background-color: $mainBackgroundCol;
