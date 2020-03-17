@@ -52,7 +52,7 @@ nav {
     align-items: center;
     font-family: $mainFont;
     font-size: 2.2rem;
-    color: $darkShadowColor;
+    color: $menuGrayColor;
 
     li {
       margin: 2rem 1.4rem;
@@ -75,7 +75,7 @@ nav {
         }
       }
 
-      a {
+      .navlink {
         padding: 0.5rem 0.5rem;
         font-weight: 600;
 
@@ -115,7 +115,7 @@ nav {
     li {
       margin: 2rem 0;
 
-      a {
+      .navlink {
         padding-bottom: 2rem;
       }
     }
@@ -141,7 +141,7 @@ nav {
       li {
         margin: 0 1.4rem;
 
-        a {
+        .navlink {
           padding: 4.2rem 0.5rem;
         }
       }
@@ -149,10 +149,14 @@ nav {
   }
 }
 
+.linkActive {
+  color: $darkShadowColor;
+}
+
 // Class .dnone for menu list
 .dnone {
   display: none;
-  @media screen and (min-width: 1500px){
+  @media screen and (min-width: 1500px) {
     display: flex;
   }
 }
