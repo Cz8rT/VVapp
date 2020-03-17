@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import {useMediaQuery} from 'react-responsive';
 import {NavLink} from "react-router-dom";
 import './style/style.scss';

@@ -1,0 +1,65 @@
+@import "./src/stylePartials/variables";
+@import "./src/stylePartials/mixins";
+
+section {
+  background-color: $windowColor;
+  margin: 0.5rem 0;
+  padding: 2rem 2rem;
+  @include shadow($shadowColor);
+
+  h2 {
+    font-family: $mainFont;
+    font-size: 2rem;
+    font-weight: 700;
+    color: $menuGrayColor;
+  }
+
+  .typeOfGet {
+    font-family: $mainFont;
+    font-size: 1.6rem;
+    color: $darkShadowColor;
+
+    .typeSearch, .typeCheck {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+      padding: 1rem 0;
+      background-color: $containerColor;
+      h3 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        strong {
+          color: $logoColor1;
+        }
+      }
+      .btn_container {
+        margin: 1rem 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        .row_1, .row_2 {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+      }
+      button {
+        font-family: $logoFont2;
+        font-size: 1.2rem;
+        min-width: 300px;
+        color: $logoColor2;
+        padding: 1rem 0.4rem;
+        margin: 1rem 0;
+        border-radius: 1rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 650px) {
+  section .typeOfGet .typeSearch button, section .typeOfGet .typeCheck button {
+    margin: 1rem;
+  }
+}
