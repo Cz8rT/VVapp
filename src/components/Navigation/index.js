@@ -1,8 +1,14 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import './style/style.scss'
+import { useMediaQuery } from 'react-responsive'
 
 const Navigation = () => {
     const [isActive, setIsActive] = useState(true);
+    const isBigScreen = useMediaQuery({ query: '(min-width: 1500px)' });
+
+        if(isBigScreen && !isActive) {
+            setIsActive(true);
+        }
 
     const hamburgerClickHandler = () => {
         setIsActive(prevState => !prevState)

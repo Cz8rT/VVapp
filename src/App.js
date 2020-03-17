@@ -10,6 +10,7 @@ import './App.css';
 import Container from "./components/Container";
 import Navigation from "./components/Navigation";
 import Home from './layouts/Home';
+import Search from "./layouts/Search/search";
 
 
 // ROUTER
@@ -18,7 +19,7 @@ function App() {
         <Router>
             <Container>
                 <Navigation/>
-                <Home/>
+                <Search/>
             </Container>
         </Router>
     )
