@@ -8,7 +8,7 @@ let exactDate = `${date.getFullYear()}-${date.getMonth() < 9 ? '0' +
     (date.getMonth() + 1) : date.getMonth()}-${date.getDate() < 10 ? '0' +
     date.getDate() : date.getDate()}`;
 
-const OneByBank = ({typeReturn}) => {
+const OneByBank = ({typeReturn, answer}) => {
     const [error, setError] = useState(false);
     const [ownDate, setOwnDate] = useState(false);
     const [userDate, setUserDate] = useState(exactDate);
@@ -17,7 +17,7 @@ const OneByBank = ({typeReturn}) => {
     // Own date checkbox check
     const handleCheck = () => {
         setOwnDate(!ownDate);
-        if (userDate > exactDate && ownDate === true) {
+        if ((userDate > exactDate && ownDate === true) || userDate === "") {
             setUserDate(exactDate);
         }
     };
@@ -40,7 +40,7 @@ const OneByBank = ({typeReturn}) => {
             .then((res) => {
                 setError(false);
                 return res.json();
-            }).then(res => console.log(res))
+            }).then(res => answer(res))
             .catch(() => {
                 setError(true);
             });
@@ -59,9 +59,10 @@ const OneByBank = ({typeReturn}) => {
 
     // Requirements for the user Date
     const requiredData = (value) => {
-        console.log(ownDate);
         if (value > exactDate && ownDate === true) {
             return "Data nie może być datą przyszłą";
+        } else if (userDate === "") {
+            return "Wprowadzona data jest błędna";
         } else {
             return undefined;
         }
