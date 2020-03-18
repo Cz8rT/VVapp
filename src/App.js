@@ -12,6 +12,7 @@ import Search from "./layouts/Search/search";
 import About from "./layouts/About/about";
 import HowToUse from "./layouts/HowToUse/howToUse";
 import Contact from "./layouts/Contact/contact";
+import Footer from "./components/Footer/Footer";
 
 
 // ROUTER
@@ -26,6 +27,7 @@ function App() {
                         <Route path='/howtouse' component={HowToUse}/>
                         <Route path='/contact' component={Contact}/>
                     </Switch>
+                    <Footer/>
                 </Container>
         </Router>
     )

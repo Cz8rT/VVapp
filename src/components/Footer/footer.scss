@@ -1,0 +1,49 @@
+@import "./src/stylePartials/variables";
+@import "./src/stylePartials/mixins";
+
+footer {
+  background-color: $containerColor;
+  @include shadow($shadowColor);
+  font-size: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 3rem;
+
+  h4 {
+    margin: 2rem 0;
+
+    .logo.footer_logo {
+      font-family: $logoFont1;
+      font-size: 1.4rem;
+      color: $logoColor2;
+      display: inline;
+
+      span {
+        font-family: $logoFont3;
+        font-size: 1rem;
+        margin-left: -0.3rem;
+      }
+    }
+  }
+
+  a {
+    margin: 2rem 2rem;
+
+    &:hover {
+      color: $logoColor2;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  footer {
+    justify-content: space-between;
+    flex-wrap: nowrap;
+
+    a {
+      margin: 2rem 0;
+    }
+  }
+}
