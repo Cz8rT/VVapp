@@ -2,13 +2,21 @@
 
 .searchOption {
   background-color: $containerColor;
-  height: 200px;
+  min-height: 449px;
   margin-top: 3.35rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.04rem;
   padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+  h4 {
+    font-size: 2rem;
+    color: $menuGrayColor;
+
+    strong {
+      color: $darkShadowColor;
+      font-weight: 700;
+    }
+  }
+
   .typeReturn {
     font-family: $mainFont;
     font-size: 1.2rem;
@@ -18,19 +26,130 @@
     padding: 1rem 0.4rem;
     margin: 1rem 0;
     border-radius: 1rem;
+
     &:hover {
       background-color: #ccced5;
       cursor: pointer;
     }
+
     &:active {
       color: $logoColor1;
     }
   }
+
+  form {
+    font-family: $mainFont;
+    margin: 3rem 2rem;
+
+    label {
+      font-size: 1.6rem;
+      color: $logoColor2;
+    }
+
+    .ownDateDiv {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+    }
+
+    input {
+      font-family: $mainFont;
+      font-size: 1.4rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      padding: 0.3rem 0.5rem;
+
+    }
+
+    #bankAccNr {
+      width: 16rem;
+      font-size: 1rem;
+    }
+
+    #userDate {
+      width: 14rem;
+      margin-left: 1rem;
+    }
+
+    p {
+      font-size: 1.6rem;
+      color: $logoColor2;
+      margin-top: 2rem;
+
+      span {
+        color: $darkShadowColor;
+      }
+    }
+
+    button {
+      font-family: $mainFont;
+      width: 170px;
+      height: 60px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: $logoColor2;
+      border-radius: 1rem;
+      margin-top: 2rem;
+
+      &:hover {
+        background-color: #ccced5;
+        cursor: pointer;
+      }
+
+      &:active {
+        color: $logoColor1;
+      }
+    }
+  }
 }
 
-@media screen and (min-width: 950px){
-  .searchOption {
-    flex-direction: initial;
+@media screen and (min-width: 475px) {
+  .searchOption form #bankAccNr {
+    width: 19rem;
+  }
+}
+
+@media screen and (min-width: 590px) {
+  .searchOption form #bankAccNr {
+    width: 25rem;
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (min-width: 895px) {
+  .searchOption form #bankAccNr {
+    margin-left: 1rem;
+  }
+}
+
+@media screen and (min-width: 920px) {
+  .searchOption .oneByBank {
+    flex-direction: row;
     justify-content: space-between;
+
+    .typeReturn {
+      margin-right: 2rem;
+    }
+  }
+}
+
+.hideData {
+  display: none;
+}
+
+.server_error {
+  font-size: 1.8rem;
+  color: red;
+}
+
+.ownDateCheckbox {
+  width: 30px;
+  height: 30px;
+  margin-left: 1rem;
+  position: relative;
+  top: -5px;
+
+  &:hover {
+    cursor: pointer;
   }
 }
