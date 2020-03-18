@@ -1,6 +1,6 @@
 import React from "react";
 
-const Buttons = () => {
+const Buttons = ({typeSearch}) => {
     return (
         <>
             <h2>Typ wyszukiwania:</h2>
@@ -9,9 +9,9 @@ const Buttons = () => {
                     <h3>Metoda pełna <strong>"search"</strong></h3>
                     <div className={'btn_container'}>
                         <div className={'row_1'}>
-                            <button>Konto bankowe</button>
+                            <button onClick={typeSearch} value={1}>Konto bankowe</button>
                             <button>Lista kont bankowych</button>
-                            <button>NIP</button>
+                            <button onClick={typeSearch} value={3}>NIP</button>
                         </div>
                         <div className={'row_2'}>
                             <button>Lista numerów NIP</button>

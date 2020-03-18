@@ -1,0 +1,12 @@
+@import "./src/stylePartials/variables";
+
+.oneByBank {
+  h4 {
+    font-size: 2rem;
+    color: $menuGrayColor;
+    strong {
+      color: $darkShadowColor;
+      font-weight: 700;
+    }
+  }
+}

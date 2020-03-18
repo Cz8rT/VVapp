@@ -1,7 +1,7 @@
 @import "./src/stylePartials/variables";
 @import "./src/stylePartials/mixins";
 
-section {
+main {
   background-color: $windowColor;
   margin: 0.5rem 0;
   padding: 2rem 2rem;
@@ -55,6 +55,7 @@ section {
         border-radius: 1rem;
         &:hover {
           background-color: #ccced5;
+          cursor: pointer;
         }
         &:active {
           color: $logoColor1;
@@ -65,7 +66,7 @@ section {
 }
 
 @media screen and (min-width: 650px) {
-  section .typeOfGet .typeSearch button, section .typeOfGet .typeCheck button {
+  main .typeOfGet .typeSearch button, main .typeOfGet .typeCheck button {
     margin: 1rem;
   }
 }
