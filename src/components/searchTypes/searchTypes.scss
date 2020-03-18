@@ -142,6 +142,16 @@
   color: red;
 }
 
+.metaError {
+  color: red;
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+}
+
+.activeInput {
+  background-color: $logoColor1;
+}
+
 .ownDateCheckbox {
   width: 30px;
   height: 30px;
