@@ -1,0 +1,41 @@
+@import "./src/stylePartials/variables";
+@import "./src/stylePartials/mixins";
+
+.about {
+  background-color: $windowColor;
+  margin: 0.5rem 0;
+  @include shadow($shadowColor);
+
+  div {
+    background-color: $containerColor;
+    margin: 3.4rem 0 1rem 0;
+    padding: 2rem;
+
+    h1 {
+      font-family: $logoFont1;
+      font-size: 3rem;
+      color: $logoColor2;
+
+      span {
+        font-family: $logoFont3;
+        font-size: 2rem;
+        margin-left: -0.5rem;
+      }
+    }
+    p {
+      font-family: $mainFont;
+      font-size: 1.4rem;
+      margin: 1rem 0;
+      text-align: justify;
+      strong {
+        color: $logoColor2;
+        font-family: $logoFont1;
+      }
+    }
+    img {
+      @include shadow($darkShadowColor);
+      border-radius: 2rem;
+    }
+  }
+}
+

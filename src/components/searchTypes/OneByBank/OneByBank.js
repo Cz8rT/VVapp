@@ -6,7 +6,7 @@ import UserDateCheckbox from "../../Form/UserDateCheckbox/UserDateCheckbox";
 import UserDateInput from "../../Form/UserDateInput/UserDateInput";
 
 const OneByBank = ({
-                       typeReturn, answer, exactDate, bankAccount, userDate, setError,
+                       typeReturn, answerList, exactDate, bankAccount, userDate, setError,
                        ownDate, bankAccHandler, handleCheck, hiddenClass, userDateHandler,
                        error, requiredData, required
                    }) => {
@@ -17,7 +17,7 @@ const OneByBank = ({
             .then((res) => {
                 setError(false);
                 return res.json();
-            }).then(res => answer(res))
+            }).then(res => answerList(res))
             .catch(() => {
                 setError(true);
             });

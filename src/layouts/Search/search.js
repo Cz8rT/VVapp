@@ -3,6 +3,7 @@ import Buttons from "../../components/Buttons/Buttons";
 import OneByBank from "../../components/searchTypes/OneByBank/OneByBank";
 import OneByNip from "../../components/searchTypes/OnebyNip/OneByNip";
 import ServerAnswer from "../../components/ServerAnswer/ServerAnswer";
+import ServerAnswerList from "../../components/ServerAnswer/ServerAnswerList";
 import './styleSearch.scss';
 import '../../components/searchTypes/searchTypes.scss';
 
@@ -20,6 +21,7 @@ const Search = () => {
     const [bankAccount, setBankAccount] = useState("");
     const [nipNumber, setNipNumber] = useState("");
     const [answer, setAnswer] = useState(null);
+    const [answerList, setAnswerList] = useState(null);
 
     // Own date checkbox check
     const handleCheck = () => {
@@ -49,6 +51,8 @@ const Search = () => {
     // Return to type of search choosing
     const typeReturnHandler = () => {
         setSearchType(0);
+        setAnswer(null);
+        setAnswerList(null);
     };
 
     // Show chosen type of search form
@@ -93,12 +97,19 @@ const Search = () => {
     const serverHandler = (value) => {
       setAnswer(value)
     };
-    console.log(answer);
+
+    // Saving server downloaded data in list form in useState
+    const serverHandlerList = (value) => {
+        setAnswerList(value)
+    };
+
+    console.log(answer,answerList);
 
     // object to be spread as a Component props
     const conf = {
         typeReturn: typeReturnHandler,
         answer: serverHandler,
+        answerList: serverHandlerList,
         exactDate: exactDate,
         bankAccount: bankAccount,
         nipNumber: nipNumber,
@@ -122,6 +133,7 @@ const Search = () => {
             {searchType === 1 && <OneByBank {...conf} />}
             {searchType === 3 && <OneByNip {...conf}/>}
             {answer !== null && <ServerAnswer answer={answer}/>}
+            {answerList !== null && <ServerAnswerList answer={answerList}/>}
         </main>
     )
 };

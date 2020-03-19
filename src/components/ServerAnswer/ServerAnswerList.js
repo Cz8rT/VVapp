@@ -1,13 +1,13 @@
 import React from "react";
 import './serverAnswer.scss';
 
-const ServerAnswer = ({answer}) => {
+const ServerAnswerList = ({answer}) => {
     const {
         name, nip, pesel, statusVat, regon, krs, residenceAddress, workingAddress,
         representatives, authorizedClerks, partners, accountNumbers,
         hasVirtualAccounts, registrationLegalDate, registrationDenialBasis,
         registrationDenialDate, removalBasis, removalDate, restorationDate, restorationBasis
-    } = answer.result.subject;
+    } = answer.result.subjects[0];
     const requestDate = answer.result.requestDateTime;
     const requestId = answer.result.requestId;
 
@@ -127,4 +127,4 @@ const ServerAnswer = ({answer}) => {
     )
 };
 
-export default ServerAnswer;
+export default ServerAnswerList;
