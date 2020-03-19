@@ -104,26 +104,29 @@
 }
 
 @media screen and (min-width: 475px) {
-  .searchOption form #bankAccNr, .searchOption form #nipNumber {
+  .searchOption form #bankAccNr, .searchOption form #nipNumber,
+  .searchOption form #regonNr {
     width: 19rem;
   }
 }
 
 @media screen and (min-width: 590px) {
-  .searchOption form #bankAccNr, .searchOption form #nipNumber {
+  .searchOption form #bankAccNr, .searchOption form #nipNumber,
+  .searchOption form #regonNr {
     width: 25rem;
     font-size: 1.4rem;
   }
 }
 
 @media screen and (min-width: 895px) {
-  .searchOption form #bankAccNr, .searchOption form #nipNumber {
+  .searchOption form #bankAccNr, .searchOption form #nipNumber,
+  .searchOption form #regonNr {
     margin-left: 1rem;
   }
 }
 
 @media screen and (min-width: 920px) {
-  .searchOption .oneByBank, .searchOption .oneByNip {
+  .searchOption .oneByBank, .searchOption .oneByNip, .searchOption .oneByRegon {
     flex-direction: row;
     justify-content: space-between;
 

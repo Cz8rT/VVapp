@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import Buttons from "../../components/Buttons/Buttons";
 import OneByBank from "../../components/searchTypes/OneByBank/OneByBank";
 import OneByNip from "../../components/searchTypes/OnebyNip/OneByNip";
+import OneByRegon from "../../components/searchTypes/OneByRegon/OneByRegon";
 import ServerAnswer from "../../components/ServerAnswer/ServerAnswer";
 import ServerAnswerList from "../../components/ServerAnswer/ServerAnswerList";
 import './styleSearch.scss';
@@ -20,6 +21,7 @@ const Search = () => {
     const [userDate, setUserDate] = useState(exactDate);
     const [bankAccount, setBankAccount] = useState("");
     const [nipNumber, setNipNumber] = useState("");
+    const [regonNumber, setRegonNumber] = useState("");
     const [answer, setAnswer] = useState(null);
     const [answerList, setAnswerList] = useState(null);
 
@@ -46,6 +48,11 @@ const Search = () => {
     // saving value of nipNumber input in useState
     const nipNumberHandler = (event) => {
         setNipNumber(event.target.value)
+    };
+
+    // saving value of regonNumber input in useState
+    const regonNumberHandler = (event) => {
+        setRegonNumber(event.target.value)
     };
 
     // Return to type of search choosing
@@ -82,6 +89,19 @@ const Search = () => {
         }
     };
 
+    // Requirements for the input regonNumber
+    const requiredRegon = (value) => {
+        if (value.length === 0) {
+            return "wymagane";
+        } else if (value.length < 9 || isNaN(value)) {
+            return "Podaj poprawny numer REGON"
+        } else if (value.length > 9 && value.length < 14) {
+            return "Podaj poprawny numer REGON"
+        } else {
+            return undefined;
+        }
+    };
+
     // Requirements for the user Date
     const requiredData = (value) => {
         if (value > exactDate && ownDate === true) {
@@ -113,18 +133,21 @@ const Search = () => {
         exactDate: exactDate,
         bankAccount: bankAccount,
         nipNumber: nipNumber,
+        regonNumber: regonNumber,
         userDate: userDate,
         setError: setError,
         ownDate: ownDate,
         bankAccHandler: bankAccHandler,
         nipNumberHandler: nipNumberHandler,
+        regonNumberHandler: regonNumberHandler,
         handleCheck: handleCheck,
         hiddenClass: hiddenClass,
         userDateHandler: userDateHandler,
         error: error,
         requiredData: requiredData,
         required: required,
-        requiredNip: requiredNip
+        requiredNip: requiredNip,
+        requiredRegon: requiredRegon
     };
 
     return (
@@ -132,6 +155,7 @@ const Search = () => {
             {searchType === 0 && <Buttons typeSearch={typeSearchHandler}/>}
             {searchType === 1 && <OneByBank {...conf} />}
             {searchType === 3 && <OneByNip {...conf}/>}
+            {searchType === 5 && <OneByRegon {...conf}/>}
             {answer !== null && <ServerAnswer answer={answer}/>}
             {answerList !== null && <ServerAnswerList answer={answerList}/>}
         </main>

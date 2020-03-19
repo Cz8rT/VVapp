@@ -15,7 +15,7 @@ const Buttons = ({typeSearch}) => {
                         </div>
                         <div className={'row_2'}>
                             <button>Lista numerów NIP</button>
-                            <button>REGON</button>
+                            <button onClick={typeSearch} value={5}>REGON</button>
                             <button>Lista numerów REGON</button>
                         </div>
                     </div>
