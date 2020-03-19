@@ -4,10 +4,12 @@ import './serverAnswer.scss';
 const ServerAnswer = ({answer}) => {
     // const name = answer.result.subjects[0].name;
     // const nip = answer.result.subjects[0].nip;
-    const {name, nip, pesel, statusVat, regon, krs, residenceAddress, workingAddress,
+    const {
+        name, nip, pesel, statusVat, regon, krs, residenceAddress, workingAddress,
         representatives, authorizedClerks, partners, accountNumbers,
         hasVirtualAccounts, registrationLegalDate, registrationDenialBasis,
-        registrationDenialDate, removalBasis, removalDate, restorationDate, restorationBasis} = answer.result.subjects[0];
+        registrationDenialDate, removalBasis, removalDate, restorationDate, restorationBasis
+    } = answer.result.subjects[0];
     const requestDate = answer.result.requestDateTime;
     const requestId = answer.result.requestId;
 
@@ -19,7 +21,7 @@ const ServerAnswer = ({answer}) => {
             <table>
                 <thead>
                 <tr>
-                    <th colSpan={2}>Figuruje w rejestrze VAT</th>
+                    <th colSpan={2}><p>Figuruje w rejestrze VAT</p></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -29,7 +31,8 @@ const ServerAnswer = ({answer}) => {
                 </tr>
                 <tr>
                     <td>Numer, za pomocą którego podmiot został zidentyfikowany na potrzeby podatku,
-                        jeżeli taki numer został przyznany</td>
+                        jeżeli taki numer został przyznany
+                    </td>
                     <td>{nip}</td>
                 </tr>
                 <tr>
@@ -55,24 +58,36 @@ const ServerAnswer = ({answer}) => {
                 <tr>
                     <td>Adres stałego miejsca prowadzenia działalności albo adres miejsca zamieszkania,
                         w przypadku braku adresu stałego miejsca prowadzenia działalności
-                        - w odniesieniu do osoby fizycznej</td>
+                        - w odniesieniu do osoby fizycznej
+                    </td>
                     <td>{workingAddress}</td>
                 </tr>
                 <tr>
                     <td>Imiona i nazwiska prokurentów oraz ich numery identyfikacji
-                        podatkowej lub numery PESEL</td>
-                    <td>{representatives.map((value, index) => <p key={index}>{value}</p>)}</td>
+                        podatkowej lub numery PESEL
+                    </td>
+                    <td>{representatives.map((value, index) => <p key={index}>
+                        <span>{value.companyName}</span><span>{value.firstName}</span>
+                        <span>{value.lastName}</span><span>{value.nip}</span>
+                        <span>{value.pesel || '-'}</span></p>)}</td>
                 </tr>
                 <tr>
                     <td>Imiona i nazwiska osób wchodzących w skład organu uprawnionego do reprezentowania
-                        podmiotu oraz ich numery identyfikacji podatkowej lub numery PESEL</td>
-                    <td>{authorizedClerks.map((value, index) => <p key={index}>{value}</p>)}</td>
+                        podmiotu oraz ich numery identyfikacji podatkowej lub numery PESEL
+                    </td>
+                    <td>{authorizedClerks.map((value, index) => <p key={index}>
+                        <span>{value.companyName}</span><span>{value.firstName}</span>
+                        <span>{value.lastName}</span><span>{value.nip}</span>
+                        <span>{value.pesel || '-'}</span></p>)}</td>
                 </tr>
                 <tr>
                     <td>Imię i nazwisko lub firma (nazwa) wspólnika oraz jego numer identyfikacji
-                        podatkowej lub numer PESEL</td>
-                    <td>{partners.map((value, index) => <p key={index}>{value.companyName} {value.firstName}
-                        {value.lastName} {value.nip} {value.pesel}</p>)}</td>
+                        podatkowej lub numer PESEL
+                    </td>
+                    <td>{partners.map((value, index) => <p key={index}>
+                        <span>{value.companyName}</span><span>{value.firstName}</span>
+                        <span>{value.lastName}</span><span>{value.nip}</span>
+                        <span>{value.pesel || '-'}</span></p>)}</td>
                 </tr>
                 <tr>
                     <td>Numery rachunków rozliczeniowych lub imiennych rachunków w SKOK</td>
@@ -80,7 +95,8 @@ const ServerAnswer = ({answer}) => {
                 </tr>
                 <tr>
                     <td>Podmiot może posiadać inne rachunki bankowe, które są przyporządkowane do
-                        rachunków wyświetlonych w wykazie</td>
+                        rachunków wyświetlonych w wykazie
+                    </td>
                     <td>{hasVirtualAccounts}</td>
                 </tr>
                 <tr>

@@ -3,4 +3,64 @@
 .serverAnswer_Container {
   background-color: $containerColor;
   padding: 1rem;
+  font-family: $mainFont;
+
+  h2 {
+    font-size: 2rem;
+    color: $logoColor2;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 1.8rem;
+    color: $darkShadowColor;
+    text-align: center;
+    margin: 1rem;
+  }
+
+  table {
+    font-size: 1.3rem;
+    margin: 0 1rem;
+
+    thead th {
+      font-weight: 700;
+      color: white;
+      background-color: green;
+      font-size: 1.8rem;
+      height: 5rem;
+      margin-top: 1rem;
+
+      p {
+        margin-top: 1.3rem;
+      }
+    }
+
+    tbody {
+      line-height: 2rem;
+
+      tr {
+        background-color: $windowColor;
+      }
+
+      tr:nth-child(2n+1) {
+        background-color: $tableWhiteColor;
+      }
+
+      td {
+        padding: 1rem;
+        p {
+          margin-bottom: 1rem;
+          span {
+            display: block;
+          }
+        }
+      }
+    }
+    tfoot td {
+      padding: 1rem 0;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: $logoColor2;
+    }
+  }
 }
