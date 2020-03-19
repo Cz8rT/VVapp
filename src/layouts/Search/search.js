@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import Buttons from "../../components/Buttons/Buttons";
 import OneByBank from "../../components/searchTypes/OneByBank/OneByBank";
 import OneByNip from "../../components/searchTypes/OnebyNip/OneByNip";
+import ServerAnswer from "../../components/ServerAnswer/ServerAnswer";
 import './styleSearch.scss';
 import '../../components/searchTypes/searchTypes.scss';
 
@@ -17,6 +18,7 @@ const Search = () => {
     const [error, setError] = useState(false);
     const [userDate, setUserDate] = useState(exactDate);
     const [bankAccount, setBankAccount] = useState("");
+    const [nipNumber, setNipNumber] = useState("");
     const [answer, setAnswer] = useState(null);
 
     // Own date checkbox check
@@ -39,6 +41,11 @@ const Search = () => {
         setBankAccount(event.target.value)
     };
 
+    // saving value of nipNumber input in useState
+    const nipNumberHandler = (event) => {
+        setNipNumber(event.target.value)
+    };
+
     // Return to type of search choosing
     const typeReturnHandler = () => {
         setSearchType(0);
@@ -55,6 +62,17 @@ const Search = () => {
             return "wymagane";
         } else if (value.length < 26 || isNaN(value)) {
             return "Podaj poprawny numer konta"
+        } else {
+            return undefined;
+        }
+    };
+
+    // Requirements for the input nipNumber
+    const requiredNip = (value) => {
+        if (value.length === 0) {
+            return "wymagane";
+        } else if (value.length < 10 || isNaN(value)) {
+            return "Podaj poprawny numer NIP"
         } else {
             return undefined;
         }
@@ -83,23 +101,27 @@ const Search = () => {
         answer: serverHandler,
         exactDate: exactDate,
         bankAccount: bankAccount,
+        nipNumber: nipNumber,
         userDate: userDate,
         setError: setError,
         ownDate: ownDate,
         bankAccHandler: bankAccHandler,
+        nipNumberHandler: nipNumberHandler,
         handleCheck: handleCheck,
         hiddenClass: hiddenClass,
         userDateHandler: userDateHandler,
         error: error,
         requiredData: requiredData,
-        required: required
+        required: required,
+        requiredNip: requiredNip
     };
 
     return (
         <main>
             {searchType === 0 && <Buttons typeSearch={typeSearchHandler}/>}
             {searchType === 1 && <OneByBank {...conf} />}
-            {searchType === 3 && <OneByNip typeReturn={typeReturnHandler}/>}
+            {searchType === 3 && <OneByNip {...conf}/>}
+            {answer !== null && <ServerAnswer answer={answer}/>}
         </main>
     )
 };
