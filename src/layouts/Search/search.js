@@ -3,8 +3,11 @@ import Buttons from "../../components/Buttons/Buttons";
 import OneByBank from "../../components/searchTypes/OneByBank/OneByBank";
 import OneByNip from "../../components/searchTypes/OnebyNip/OneByNip";
 import OneByRegon from "../../components/searchTypes/OneByRegon/OneByRegon";
+import NipAndBank from "../../components/searchTypes/NipAndBank/NipAndBank";
+import RegonAndBank from "../../components/searchTypes/RegonAndBank/RegonAndBank";
 import ServerAnswer from "../../components/ServerAnswer/ServerAnswer";
 import ServerAnswerList from "../../components/ServerAnswer/ServerAnswerList";
+import ServerAnswerShort from "../../components/ServerAnswer/ServerAnswerShort";
 import './styleSearch.scss';
 import '../../components/searchTypes/searchTypes.scss';
 
@@ -24,6 +27,7 @@ const Search = () => {
     const [regonNumber, setRegonNumber] = useState("");
     const [answer, setAnswer] = useState(null);
     const [answerList, setAnswerList] = useState(null);
+    const [answerShort, setAnswerShort] = useState(null);
 
     // Own date checkbox check
     const handleCheck = () => {
@@ -60,6 +64,7 @@ const Search = () => {
         setSearchType(0);
         setAnswer(null);
         setAnswerList(null);
+        setAnswerShort(null);
     };
 
     // Show chosen type of search form
@@ -123,13 +128,19 @@ const Search = () => {
         setAnswerList(value)
     };
 
-    console.log(answer,answerList);
+    // Saving server downloaded data in short version in useState
+    const serverHandlerShort = (value) => {
+        setAnswerShort(value)
+    };
+
+    console.log(answer,answerList,answerShort);
 
     // object to be spread as a Component props
     const conf = {
         typeReturn: typeReturnHandler,
         answer: serverHandler,
         answerList: serverHandlerList,
+        answerShort: serverHandlerShort,
         exactDate: exactDate,
         bankAccount: bankAccount,
         nipNumber: nipNumber,
@@ -156,8 +167,11 @@ const Search = () => {
             {searchType === 1 && <OneByBank {...conf} />}
             {searchType === 3 && <OneByNip {...conf}/>}
             {searchType === 5 && <OneByRegon {...conf}/>}
+            {searchType === 7 && <NipAndBank {...conf}/>}
+            {searchType === 8 && <RegonAndBank {...conf}/>}
             {answer !== null && <ServerAnswer answer={answer}/>}
             {answerList !== null && <ServerAnswerList answer={answerList}/>}
+            {answerShort !== null && <ServerAnswerShort answer={answerShort}/>}
         </main>
     )
 };

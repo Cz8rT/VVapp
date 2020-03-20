@@ -23,8 +23,8 @@ const Buttons = ({typeSearch}) => {
                 <div className={'typeCheck'}>
                     <h3>Metoda uproszczona <strong>"check"</strong></h3>
                     <div className={'btn_container'}>
-                        <button>NIP + konto bankowe</button>
-                        <button>REGON + konto bankowe</button>
+                        <button onClick={typeSearch} value={7}>NIP + konto bankowe</button>
+                        <button onClick={typeSearch} value={8}>REGON + konto bankowe</button>
                     </div>
                 </div>
             </div>
