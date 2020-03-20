@@ -13,7 +13,7 @@ const OneByBank = ({
 
     // Server GET on Form submit
     const onSubmit = () => {
-        fetch(`https://wl-test.mf.gov.pl/api/search/bank-account/${bankAccount}?date=${userDate}`)
+        fetch(`https://wl-api.mf.gov.pl/api/search/bank-account/${bankAccount}?date=${userDate}`)
             .then((res) => {
                 setError(false);
                 return res.json();

@@ -14,7 +14,7 @@ const RegonAndBank = ({
 
     // Server GET on Form submit
     const onSubmit = () => {
-        fetch(`https://wl-test.mf.gov.pl//api/check/regon/${regonNumber}/bank-account/${bankAccount}?date=${userDate}`)
+        fetch(`https://wl-api.mf.gov.pl//api/check/regon/${regonNumber}/bank-account/${bankAccount}?date=${userDate}`)
             .then((res) => {
                 setError(false);
                 return res.json();

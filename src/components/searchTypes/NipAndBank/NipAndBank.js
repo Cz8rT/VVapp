@@ -14,7 +14,7 @@ const NipAndBank = ({
 
     // Server GET on Form submit
     const onSubmit = () => {
-        fetch(`https://wl-test.mf.gov.pl//api/check/nip/${nipNumber}/bank-account/${bankAccount}?date=${userDate}`)
+        fetch(`https://wl-api.mf.gov.pl//api/check/nip/${nipNumber}/bank-account/${bankAccount}?date=${userDate}`)
             .then((res) => {
                 setError(false);
                 return res.json();
